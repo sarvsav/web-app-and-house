@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>House vs Web App — Interactive Analogy</title>
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--accent:#7dd3fc;--muted:#94a3b8;--good:#10b981;--bad:#ef4444}
+    *{box-sizing:border-box}
+    body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial; margin:0; background:linear-gradient(180deg,#071126 0%, #071833 100%); color: #e6eef6}
+    header{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid rgba(255,255,255,0.04)}
+    header h1{font-size:18px;margin:0}
+    .controls{display:flex;gap:8px;align-items:center}
+    button, .toggle{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--accent);padding:8px 10px;border-radius:8px;cursor:pointer}
+    button.primary{background:var(--accent);color:#042027;border:none}
+    main{padding:20px}
+    .slides{min-height:420px}
+    .slide{display:none}
+    .slide.active{display:block}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,0.6)}
+    .quiz{display:grid;gap:10px}
+    .btn-row{display:flex;gap:8px}
+    .small{padding:6px 8px;font-size:13px}
+    .note{color:var(--muted);font-size:13px}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>House ↔️ Web App — Interactive Analogy</h1>
+    <div class="controls">
+      <button id="prev">◀ Prev</button>
+      <button id="next">Next ▶</button>
+      <button id="teacherToggle" class="toggle">Teacher Mode</button>
+    </div>
+  </header>
+  <main>
+    <div class="slides">
+      <section class="slide card active" data-index="0">
+        <h2>Quick quiz (10 questions)</h2>
+        <div class="quiz" style="margin-top:12px">
+          <div>
+            <p><strong>Q1.</strong> Which building element best maps to a database?</p>
+            <label><input type="radio" name="q1" value="a"> A) Roof</label><br>
+            <label><input type="radio" name="q1" value="b"> B) Plumbing & Electrical</label><br>
+            <label><input type="radio" name="q1" value="c"> C) Windows & Doors</label>
+          </div>
+          <div>
+            <p><strong>Q2.</strong> What is the best analogy for a CDN?</p>
+            <label><input type="radio" name="q2" value="a"> A) Local warehouse / supply depot</label><br>
+            <label><input type="radio" name="q2" value="b"> B) Inspector</label><br>
+            <label><input type="radio" name="q2" value="c"> C) Furniture</label>
+          </div>
+          <div>
+            <p><strong>Q3.</strong> Which part of a house is like the frontend of a web app?</p>
+            <label><input type="radio" name="q3" value="a"> A) Furniture and interior design</label><br>
+            <label><input type="radio" name="q3" value="b"> B) Foundation</label><br>
+            <label><input type="radio" name="q3" value="c"> C) Plumbing</label>
+          </div>
+          <div>
+            <p><strong>Q4.</strong> The inspector in a house project is similar to what in software development?</p>
+            <label><input type="radio" name="q4" value="a"> A) QA / Testing</label><br>
+            <label><input type="radio" name="q4" value="b"> B) Frontend design</label><br>
+            <label><input type="radio" name="q4" value="c"> C) Database setup</label>
+          </div>
+          <div>
+            <p><strong>Q5.</strong> Which house element represents DevOps / Operations?</p>
+            <label><input type="radio" name="q5" value="a"> A) Maintenance crew</label><br>
+            <label><input type="radio" name="q5" value="b"> B) Roof</label><br>
+            <label><input type="radio" name="q5" value="c"> C) Windows</label>
+          </div>
+          <div>
+            <p><strong>Q6.</strong> What is the equivalent of construction tools (hammer, saw) in web development?</p>
+            <label><input type="radio" name="q6" value="a"> A) Developer tools (IDE, linters)</label><br>
+            <label><input type="radio" name="q6" value="b"> B) Databases</label><br>
+            <label><input type="radio" name="q6" value="c"> C) Hosting servers</label>
+          </div>
+          <div>
+            <p><strong>Q7.</strong> The blueprint of a house is equivalent to what in software development?</p>
+            <label><input type="radio" name="q7" value="a"> A) Backend logic</label><br>
+            <label><input type="radio" name="q7" value="b"> B) System architecture / Specs</label><br>
+            <label><input type="radio" name="q7" value="c"> C) User Interface</label>
+          </div>
+          <div>
+            <p><strong>Q8.</strong> What part of the house represents security and availability in web apps?</p>
+            <label><input type="radio" name="q8" value="a"> A) Roof / Locks & Security</label><br>
+            <label><input type="radio" name="q8" value="b"> B) Windows & Doors</label><br>
+            <label><input type="radio" name="q8" value="c"> C) Plumbing</label>
+          </div>
+          <div>
+            <p><strong>Q9.</strong> Which house element corresponds to packages and dependencies in coding?</p>
+            <label><input type="radio" name="q9" value="a"> A) Nails & Screws</label><br>
+            <label><input type="radio" name="q9" value="b"> B) Furniture</label><br>
+            <label><input type="radio" name="q9" value="c"> C) Electricity</label>
+          </div>
+          <div>
+            <p><strong>Q10.</strong> After a house is built, who ensures it continues to run smoothly, similar to DevOps in software?</p>
+            <label><input type="radio" name="q10" value="a"> A) Maintenance crew</label><br>
+            <label><input type="radio" name="q10" value="b"> B) Inspector</label><br>
+            <label><input type="radio" name="q10" value="c"> C) Architect</label>
+          </div>
+          <div class="btn-row">
+            <button id="gradeQuiz" class="primary small">Grade Quiz</button>
+            <button id="revealQuiz" class="small">Reveal Answers</button>
+          </div>
+          <div id="quizResult" style="margin-top:10px" class="note"></div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <script>
+    const answers = {q1:'b', q2:'a', q3:'a', q4:'a', q5:'a', q6:'a', q7:'b', q8:'a', q9:'a', q10:'a'};
+    document.getElementById('gradeQuiz').addEventListener('click', ()=>{
+      let score=0; let total=Object.keys(answers).length;
+      for(let q in answers){
+        const ans = document.querySelector(`input[name=${q}]:checked`);
+        if(ans && ans.value===answers[q]) score++;
+      }
+      document.getElementById('quizResult').textContent = `Score: ${score}/${total}`;
+    });
+    document.getElementById('revealQuiz').addEventListener('click', ()=>{
+      document.getElementById('quizResult').innerHTML = 'Answers: Q1=B, Q2=A, Q3=A, Q4=A, Q5=A, Q6=A, Q7=B, Q8=A, Q9=A, Q10=A';
+    });
+  </script>
+</body>
+</html>
